@@ -1,0 +1,60 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\yash>cd \
+
+C:\>cd sqlite
+
+C:\sqlite>dir
+ Volume in drive C is OS
+ Volume Serial Number is 1A0A-0EA5
+
+ Directory of C:\sqlite
+
+03/25/2022  07:28 AM    <DIR>          .
+03/25/2022  07:28 AM    <DIR>          ..
+03/25/2022  07:18 AM                 0 db
+03/25/2022  07:19 AM                 0 dir
+03/24/2022  09:37 AM           572,416 sqldiff.exe
+03/24/2022  10:43 AM                 0 sqlite
+03/24/2022  09:45 AM             7,769 sqlite3.def
+03/24/2022  09:45 AM         2,166,784 sqlite3.dll
+03/24/2022  09:37 AM         1,101,312 sqlite3.exe
+03/24/2022  09:37 AM         2,088,448 sqlite3_analyzer.exe
+03/25/2022  07:28 AM             8,192 test.db
+               9 File(s)      5,944,921 bytes
+               2 Dir(s)  223,545,651,200 bytes free
+
+C:\sqlite>sqlite3 test.db
+SQLite version 3.38.1 2022-03-12 13:37:29
+Enter ".help" for usage hints.
+sqlite>
+sqlite> create table movies(a string ,b string ,c string,d string , e int);
+Parse error: table movies already exists
+  create table movies(a string ,b string ,c string,d string , e int);
+               ^--- error here
+sqlite> create Table movies(a int,b string,c string,d string,e string);
+Parse error: table movies already exists
+  create Table movies(a int,b string,c string,d string,e string);
+               ^--- error here
+sqlite> create table movie(a int,b string,c string,d string,e string);
+sqlite> insert into movie(a,b,c,d,e) values(1999,"ab","cd","ef","gh"),(2000,"ij","kl","mn","op","qr");
+Parse error: all VALUES must have the same number of terms
+sqlite>  insert into movie(a,b,c,d,e) values(1999,"ab","cd","ef","gh"),(2000,"ij","kl","mn","op");
+sqlite> select * from movie;
+1999|ab|cd|ef|gh
+2000|ij|kl|mn|op
+sqlite>
+sqlite> select a ,b,c, d ,e from movie where a=2000;
+2000|ij|kl|mn|op
+sqlite>
+sqlite> .quit
+
+C:\sqlite>
+C:\sqlite>
+
+
+
+
+
+
